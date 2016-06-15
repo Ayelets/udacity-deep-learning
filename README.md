@@ -4,9 +4,30 @@ This repository contains assigments completed for the Udacity Deep Learning Mach
 
 ## Docker tips 
 
-To have docker save the files after you close and restart the machine, this was the best solution I found:
+#### Getting docker setup on Windows:
 
-Get your docker machine ip
+----
+
+Step 1: Dowload the docker toolbox from: https://www.docker.com/products/docker-toolbox
+Step 2: Open the Docker Quickstart Terminal and the default docker machine will start
+Step 3: Stop this machine by running this command ``` docker-machine stop default ```
+Step 4: You'll need to create a new docker machine with more memory for class. Use the command below.
+
+``` docker-machine create -d virtualbox --virtualbox-memory 8196 <docker-name> ```
+
+Make sure to provide a name of your choosing for the last arguement above.  I named mine tensorflow like below. 
+
+``` docker-machine create -d virtualbox --virtualbox-memory 8196 tensorflow ```
+
+Step 5: Start the docker-machine by the following command ``` docker-machine start <docker-name> ```
+
+
+
+#### To have docker save the files after you close and restart the machine, this was the best solution I found:
+
+----
+
+After you've created you docker machine above get your docker machine ip
 
 ``` docker-machine ip ```
 
@@ -16,7 +37,7 @@ The first time you run/pull the docker file from the google repo give it a name
 ``` docker run -p 8888:8888 -d --name tfudacity b.gcr.io/tensorflow-udacity/assignments ```
 
 
-You can then start this docker by name:
+You can then start this docker by name everytime after by simply running this command in the Quickstart Terminal:
 
 ``` docker start tfudacity ```
 
